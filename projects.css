@@ -1,0 +1,179 @@
+/* Redefine as margens e preenchimentos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo da navegação */
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #004daf;
+}
+
+/* Estilo do cabeçalho */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1b99ca;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Layout principal com os serviços */
+main {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.services-left {
+    flex: 1;
+}
+
+.services-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.divider {
+    border-left: 2px solid #ccc;
+    height: 100%;
+    margin: 0 20px;
+}
+
+.service-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.service-item h2 {
+    color: #004daf;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Imagens dentro da box */
+.service-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px; /* Espaçamento entre o texto e a imagem */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 550px;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+footer svg{
+    height:25px;
+    transform: translateY(-2px);
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+footer a:hover {
+    color: #004daf;
+}
+
+footer img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    position: relative;
+    top: -100px;
+    left: -500px;
+    object-fit: contain;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+/* Ajuste para os links no rodapé ficarem na mesma linha com divisória */
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+footer .social-links a {
+    margin-right: 15px;
+}
+
+footer .social-links a:last-child {
+    margin-right: 0;
+}
+
+footer .social-links span {
+    margin: 0 5px;
+    color: white;
+}
