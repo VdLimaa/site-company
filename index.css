@@ -61,12 +61,13 @@ nav {
     padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
-    
+
     z-index: 1000;
 }
 
 nav.fixed {
-    position: fixed; /* Classe que será adicionada/removida via JS */
+    position: fixed;
+    /* Classe que será adicionada/removida via JS */
     top: 0;
     left: 0;
     z-index: 1001;
@@ -110,7 +111,7 @@ nav img {
     width: 100%;
 }
 
-.nav-links ul li:hover > ul.dropdown {
+.nav-links ul li:hover>ul.dropdown {
     display: block;
 }
 
@@ -121,8 +122,10 @@ ul li ul.dropdown {
     left: 0;
     background-color: rgba(41, 145, 255, 0.425);
     z-index: 999;
-    display: none; /* Escondido por padrão */
-    min-width: 130px; /* Ajuste o tamanho do menu dropdown */
+    display: none;
+    /* Escondido por padrão */
+    min-width: 130px;
+    /* Ajuste o tamanho do menu dropdown */
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -534,19 +537,27 @@ footer {
 
 .notification {
     position: fixed;
-    bottom: 20px; /* Distância do fundo */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajusta para o centro */
-    background-color: #303030; 
+    bottom: 20px;
+    /* Distância do fundo */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta para o centro */
+    background-color: #303030;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
-    opacity: 0; /* Inicia invisível */
-    transition: opacity 0.5s ease; /* Animação de fade */
-    z-index: 1000; /* Garante que fique acima de outros elementos */
+    opacity: 0;
+    /* Inicia invisível */
+    transition: opacity 0.5s ease;
+    /* Animação de fade */
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos */
 }
+
 .notification.show {
-    opacity: 1; /* Torna visível */
+    opacity: 1;
+    /* Torna visível */
 }
 
 /* end footer */
@@ -580,40 +591,47 @@ footer {
         transition: 1s;
     }
 
-    ul li > a {
+    ul li>a {
         display: block;
     }
-    
-    ul li.active > ul.dropdown {
+
+    ul li.active>ul.dropdown {
         display: block;
     }
+
     .nav-links ul li a {
-        font-size: 12px; /* Ajuste o tamanho da fonte conforme necessário */
+        font-size: 12px;
+        /* Ajuste o tamanho da fonte conforme necessário */
     }
-    
+
     /* Diminuir o padding dos itens do menu */
     .nav-links ul li {
-        padding: 8px 10px; /* Ajuste os valores de padding conforme necessário */
+        padding: 8px 10px;
+        /* Ajuste os valores de padding conforme necessário */
     }
-    
+
     /* Diminuir o espaçamento entre os itens */
     .nav-links ul {
-        margin: 0; /* Remove margens extras */
-        padding: 0; /* Remove o padding, se necessário */
+        margin: 0;
+        /* Remove margens extras */
+        padding: 0;
+        /* Remove o padding, se necessário */
     }
-    
+
     /* Ajustar o tamanho do dropdown */
     ul li ul.dropdown {
-        min-width: 100px; /* Ajuste a largura do dropdown */
+        min-width: 100px;
+        /* Ajuste a largura do dropdown */
         padding-top: 0;
         background-color: rgb(41, 144, 255);
     }
-    
+
     /* Ajustar o espaçamento interno do dropdown */
     ul li ul.dropdown li {
-       padding: 0px 10px; /* Ajuste os valores de padding conforme necessário */
+        padding: 0px 10px;
+        /* Ajuste os valores de padding conforme necessário */
     }
-    
+
 
     html,
     body {
