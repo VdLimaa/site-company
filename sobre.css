@@ -340,6 +340,17 @@ footer {
     opacity: 0.8;
 }
 
+
+
+.footer-list li {
+    white-space: normal;
+    /* Permite quebra de linha */
+    max-width: 230px;
+    /* Define uma largura para forçar a quebra */
+    word-wrap: break-word;
+    /* Quebra palavras longas se necessário */
+}
+
 #footer_copyright {
     display: flex;
     justify-content: center;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JL Marine - Sobre</title>
+    <link rel="icon" href="img/icon-web.png" type="image/png">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -12,6 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                emailjs.init("mOwqQKr_eRyxGyF7t");
+            });
+        </script>
 
 </head>
 
@@ -176,8 +184,8 @@
 
                 <p>Escreva seu e-mail para receber notificações das novidades da JL Marine!</p>
                 <div id="input-group">
-                    <input type="email" id="email">
-                    <button>
+                    <input type="email" id="emailFooter" name="emailFooter" placeholder="Seu E-mail">
+                    <button onclick="emailCatch()" id="btn-submit" >
                         <i class="fa-regular fa-envelope"></i>
                     </button>
                 </div>
@@ -193,6 +201,30 @@
 
     <!-- Javascript -->
     <script>
+         function emailCatch() {
+    let emailValue = document.getElementById("emailFooter").value;
+
+    // Validação básica
+    if (!emailValue) {
+        alert("Por favor, insira um e-mail!");
+        return;
+    }
+
+    let parms = {
+        email: emailValue,
+    };
+
+    emailjs.send("service_myyu0e7", "template_09oxatb", parms)
+        .then(function(response) {
+            alert("E-mail enviado com sucesso!");
+            // Limpar o campo correto após o envio
+            document.getElementById("emailFooter").value = "";
+        })
+        .catch(function(error) {
+            alert("Falha ao enviar o e-mail: " + error);
+        });
+}
+
         var navLinks = document.getElementById("navLinks");
         var menuIcon = document.querySelector(".fa-bars");
         var closeIcon = document.querySelector(".fa-times");
@@ -213,6 +245,25 @@
         document.addEventListener("DOMContentLoaded", function () {
             closeIcon.style.display = "none";
         });
+
+        function copyAndNotify(phoneNumber) {
+            // Copia o número para a área de transferência
+            navigator.clipboard.writeText(phoneNumber)
+                .then(() => {
+                    // Mostra a notificação
+                    const notification = document.getElementById('notification');
+                    notification.textContent = 'Número copiado!';
+                    notification.classList.add('show');
+
+                    // Esconde após 2 segundos
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 1000);
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                });
+        }
     </script>
     <!-- End Javascript -->
 
