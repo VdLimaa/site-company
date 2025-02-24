@@ -1,52 +1,30 @@
-//Forms E-mail
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("c428_m0OO36S2ukqb"); // Inicializa EmailJS corretamente
 
-// document.getElementById("btn-submit").addEventListener("click", function sendMail(){
-//     let parms = {
-//         name: document.getElementById("name").value,
-//         email: document.getElementById("email").value,
-//         message: document.getElementById("message").value,
-//         subject: document.getElementById("subject").value
-//     }
-
-//     emailjs.send("service_myyu0e7", "template_3btred7", parms)
-//     .then(function(response) {
-//         alert("E-mail enviado com sucesso!");
-
-//         document.getElementById("name").value = "";
-//             document.getElementById("email").value = "";
-//             document.getElementById("message").value = "";
-//             document.getElementById("subject").value = "";
-//     })
-//     .catch(function(error) {
-//         alert("Falha ao enviar o e-mail: " + error);
-//     });
-// });
-
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();  // Previne o envio padrão do formulário
-    sendMail();  // Chama a função de envio do e-mail
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Previne envio padrão do formulário
+        sendMail();
+    });
 });
 
 function sendMail() {
-    let parms = {
+    let params = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
-        message: document.getElementById("message").value,
-        subject: document.getElementById("subject").value
-    }
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
 
-    emailjs.send("service_myyu0e7", "template_3btred7", parms)
-    .then(function(response) {
-        alert("E-mail enviado com sucesso!");
+    emailjs.send("service_myyu0e7", "template_3btred7", params)
+        .then(function (response) {
+            alert("E-mail enviado com sucesso!");
+            console.log("SUCCESS!", response);
 
-        // Limpar os campos após o envio
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-        document.getElementById("subject").value = "";
-    })
-    .catch(function(error) {
-        alert("Falha ao enviar o e-mail: " + error);
-    });
+            // Limpar os campos após o envio
+            document.getElementById("contact-form").reset();
+        })
+        .catch(function (error) {
+            alert("Erro ao enviar o e-mail. Verifique o console para mais detalhes.");
+            console.error("EmailJS Error:", error);
+        });
 }
-
