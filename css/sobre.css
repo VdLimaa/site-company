@@ -243,6 +243,9 @@ nav .fa-bars {
     margin: 13px 0;
     font-weight: 600;
 }
+.about-empresa .card p {
+    padding: 0 0 15px;
+}
 
 /* footer */
 
