@@ -43,15 +43,21 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="services.html">Serviços</a>
+                        <a href="#">Serviços</a>
                         <ul class="dropdown">
                             <li><a href="marine.html">Marine</a></li>
                             <li><a href="log.html">Logística</a></li>
                             <li><a href="comex.html">Comex</a></li>
-                            <li><a href="services.html">Outros</a></li>
+                            <li><a href="services.html">Mais...</a></li>
                         </ul>
                     </li>
-                    <li><a href="contacts.html">Contato</a></li>
+                    <li>
+                        <a href="#">Contato</a>
+                        <ul class="dropdown">
+                            <li><a href="contacts.html">Nos Contate</a></li>
+                            <li><a href="vagas.html">Trabalhe Conosco</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -67,6 +73,11 @@
         <section class="servico-destaque">
             <div class="container">
                 <div class="servico-content">
+                    <div class="back-services">
+                        <a href="services.html">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
                     <div class="servico-icon">
                         <i class="fas fa-cogs" style="font-size: 2.2rem; color: #004daf;"></i>
                     </div>
@@ -117,11 +128,12 @@
                                 maxlength="300"></textarea>
                         </div>
                         <button type="submit" class="hero-btn">Enviar</button>
+                    </form>
                 </div>
 
-                </form>
+
             </div>
-            </div>
+
         </section>
 
     </main>
@@ -200,49 +212,49 @@
     <!-- Javascript -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    // Pega o título da página uma vez ao carregar
-    const pageTitle = document.title; // Título da página sem encoding
+            // Pega o título da página uma vez ao carregar
+            const pageTitle = document.title; // Título da página sem encoding
 
-    // Configuração do WhatsApp
-    const phoneNumber = "+5513981127677";
-    const whatsappMessage = "Olá! Gostaria de mais informações sobre " + pageTitle + ".";
-    const whatsappButton = document.querySelector(".whatsapp-icon");
+            // Configuração do WhatsApp
+            const phoneNumber = "+5513981127677";
+            const whatsappMessage = "Olá! Gostaria de mais informações sobre " + pageTitle + ".";
+            const whatsappButton = document.querySelector(".whatsapp-icon");
 
-    if (whatsappButton) {
-        whatsappButton.setAttribute("href", "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(whatsappMessage));
-    }
+            if (whatsappButton) {
+                whatsappButton.setAttribute("href", "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(whatsappMessage));
+            }
 
-    // Inicializa EmailJS
-    emailjs.init("c428_m0OO36S2ukqb");
+            // Inicializa EmailJS
+            emailjs.init("c428_m0OO36S2ukqb");
 
-    // Configuração do formulário
-    document.querySelector(".contato-form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Previne envio padrão do formulário
-        sendMail(pageTitle); // Passa o título da página para a função sendMail
-    });
-});
-
-function sendMail(pageTitle) {
-    let params = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: pageTitle, // Usa o título da página como subject
-        message: document.getElementById("message").value
-    };
-
-    emailjs.send("service_myyu0e7", "template_3btred7", params)
-        .then(function (response) {
-            alert("E-mail enviado com sucesso!");
-            console.log("SUCCESS!", response);
-
-            // Limpar os campos após o envio
-            document.querySelector(".contato-form").reset();
-        })
-        .catch(function (error) {
-            alert("Erro ao enviar o e-mail. Verifique o console para mais detalhes.");
-            console.error("EmailJS Error:", error);
+            // Configuração do formulário
+            document.querySelector(".contato-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Previne envio padrão do formulário
+                sendMail(pageTitle); // Passa o título da página para a função sendMail
+            });
         });
-}
+
+        function sendMail(pageTitle) {
+            let params = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                subject: pageTitle, // Usa o título da página como subject
+                message: document.getElementById("message").value
+            };
+
+            emailjs.send("service_myyu0e7", "template_3btred7", params)
+                .then(function (response) {
+                    alert("E-mail enviado com sucesso!");
+                    console.log("SUCCESS!", response);
+
+                    // Limpar os campos após o envio
+                    document.querySelector(".contato-form").reset();
+                })
+                .catch(function (error) {
+                    alert("Erro ao enviar o e-mail. Verifique o console para mais detalhes.");
+                    console.error("EmailJS Error:", error);
+                });
+        }
 
 
         function emailCatch() {

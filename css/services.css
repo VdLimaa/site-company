@@ -250,8 +250,9 @@ nav .fa-bars {
 .card svg {
     width: 2em;
     height: 2em;
-    fill: #1b99ca; /* Cor para o path dentro do SVG */
-    margin-bottom: 15px;
+    fill: #1b99ca;
+    /* Cor para o path dentro do SVG */
+    margin-bottom: 8.7px;
 }
 
 
@@ -560,7 +561,7 @@ footer {
     }
 
     .sub-header h1 {
-        margin-top: 100px;
+        margin-top: 30px;
         font-size: 25px;
         display: inline-block;
         padding: 20px;

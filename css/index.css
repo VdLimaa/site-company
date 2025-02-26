@@ -256,7 +256,8 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 30px auto;
-    padding: 40px 20px; /* Adiciona padding semelhante ao da Comex Online */
+    padding: 40px 20px;
+    /* Adiciona padding semelhante ao da Comex Online */
 }
 
 .diferenciais .card {
@@ -279,12 +280,14 @@ main {
 }
 
 .diferenciais .card:hover {
-    box-shadow: 0px 10px 67px 8px #031a7e; /* Mantém o hover original */
+    box-shadow: 0px 10px 67px 8px #031a7e;
+    /* Mantém o hover original */
 }
 
 .diferenciais .card svg {
     width: 53px;
-    color: var(--azul-escuro); /* Mantém a cor azul escuro (#004daf) */
+    color: var(--azul-escuro);
+    /* Mantém a cor azul escuro (#004daf) */
     margin-bottom: 10px;
 }
 
@@ -292,8 +295,10 @@ main {
     margin: 13px 0;
     font-weight: 600;
     text-align: left;
-    font-size: 1.2rem; /* Ajusta para um tamanho maior, como na Comex Online */
-    color: var(--azul-escuro); /* Mantém a cor azul escuro para consistência */
+    font-size: 1.2rem;
+    /* Ajusta para um tamanho maior, como na Comex Online */
+    color: var(--azul-escuro);
+    /* Mantém a cor azul escuro para consistência */
 }
 
 .diferenciais .card p {
@@ -302,8 +307,10 @@ main {
     line-height: 1.5;
     max-width: 100%;
     word-wrap: break-word;
-    font-size: 1rem; /* Ajusta para um tamanho de texto típico da Comex Online */
-    color: #333; /* Cor padrão para texto, como no seu body */
+    font-size: 1rem;
+    /* Ajusta para um tamanho de texto típico da Comex Online */
+    color: #333;
+    /* Cor padrão para texto, como no seu body */
 }
 
 /* Section Redestina */
@@ -311,7 +318,8 @@ main {
 .redestina .container {
     display: flex;
     align-items: center;
-    margin-top: 80px; /* Aumenta o espaçamento superior para garantir maior separação */
+    margin-top: 80px;
+    /* Aumenta o espaçamento superior para garantir maior separação */
 }
 
 .redestina .redestina-img {

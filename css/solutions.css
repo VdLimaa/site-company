@@ -236,6 +236,44 @@ main .container {
     max-width: 800px;
 }
 
+.servico-content h3 {
+    font-size: 2.2rem;
+    color: #004daf;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: 400;
+    color: #003580;
+}
+
+.servico-destaque .servico-content .back-services {
+    font-size: 1.2rem;
+    padding-bottom: 30px;
+    cursor: pointer;
+    color: #003580;
+    display: inline-flex;
+    align-items: center;
+}
+
+.servico-destaque .servico-content .back-services a {
+    color: #003580;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.servico-destaque .servico-content .back-services a i {
+    transition: transform 0.3s ease, color 0.3s ease;
+    /* Suaviza a transição de movimento e cor */
+}
+
+.servico-destaque .servico-content .back-services a:hover i {
+    transform: translateX(-5px);
+    /* Move a seta 5px para a direita */
+    color: #007bff;
+    /* Muda a cor da seta para um azul mais claro (ajuste conforme preferência) */
+}
+
 .servico-destaque .servico-icon {
     margin-bottom: 20px;
 }
@@ -247,12 +285,12 @@ main .container {
     color: var(--azul-escuro);
 }
 
-.servico-destaque h2, h3 {
+.servico-destaque h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
     margin-top: 20px;
     font-weight: 400;
-    color: var(--azul-escuro);
+    color: #003580;
 }
 
 .servico-destaque p {
@@ -307,25 +345,31 @@ main .container {
 .contato-especialistas {
     padding: 0px 0;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('../img/Pattern-JL.png');
-    display: flex; /* Adicionado para centralizar o conteúdo */
-    justify-content: center; /* Alinha horizontalmente */
-    align-items: center; /* Alinha verticalmente */
-    height: 100vh; /* Garante que a altura ocupe toda a tela */
-    
+    display: flex;
+    /* Adicionado para centralizar o conteúdo */
+    justify-content: center;
+    /* Alinha horizontalmente */
+    align-items: center;
+    /* Alinha verticalmente */
+    height: 100vh;
+    /* Garante que a altura ocupe toda a tela */
+
 }
 
 .contato-especialistas .container {
-    max-width: 800px; /* Definido para garantir que o conteúdo tenha um limite de largura */
+    max-width: 800px;
+    /* Definido para garantir que o conteúdo tenha um limite de largura */
     width: 100%;
     padding: 0 5%;
     margin: 0 auto;
     background-color: #003580;
-   
+
 }
 
 .contato-especialistas .contato-content {
     padding: 20px;
-    text-align: center; /* Centraliza o conteúdo do contato */
+    text-align: center;
+    /* Centraliza o conteúdo do contato */
 }
 
 .contato-especialistas h2 {
@@ -346,13 +390,15 @@ main .container {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center; /* Alinha os campos de input e o botão */
+    align-items: center;
+    /* Alinha os campos de input e o botão */
 }
 
 .contato-especialistas .form-group {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Faz com que os campos de input ocupem toda a largura */
+    width: 100%;
+    /* Faz com que os campos de input ocupem toda a largura */
 }
 
 .contato-especialistas .form-group input,
@@ -362,7 +408,8 @@ main .container {
     border-radius: 4px;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
-    width: 100%; /* Garante que o campo de input ocupe toda a largura disponível */
+    width: 100%;
+    /* Garante que o campo de input ocupe toda a largura disponível */
 }
 
 .contato-especialistas .form-group textarea {
@@ -527,9 +574,7 @@ footer {
 
 
 
-    .header {
-        background-position: -90px center;
-    }
+
 
 
     .nav-links {
@@ -624,7 +669,7 @@ footer {
         width: 100%;
     }
 
-    
+
 
     .servico-destaque .servico-content,
     .contato-especialistas .contato-content {
@@ -642,7 +687,7 @@ footer {
         font-size: 0.9rem;
     }
 
-    
+
 
     .contato-especialistas .contato-form {
         gap: 10px;
