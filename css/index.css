@@ -28,7 +28,6 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -114,7 +113,7 @@ ul li ul.dropdown {
     top: 100%;
     left: 0;
     background-color: rgba(5, 126, 255, 0.432);
-    z-index: 9999;
+    z-index: 999;
     display: none;
     min-width: 130px;
     border-radius: 5px;
@@ -128,9 +127,7 @@ ul li ul.dropdown {
 
 .nav-links ul li ul.dropdown li:hover {
     background-color: #031a7e;
-
     width: 100%;
-
 }
 
 /* Estilo do dropdown quando o nav está fixo */
@@ -150,11 +147,6 @@ nav.fixed ul li ul.dropdown li:hover {
     background: rgba(27, 153, 202, 0.2);
     /* Tom mais claro de azul-claro com opacidade */
 }
-
-/* Ajuste para o dropdown no mobile */
-
-
-
 
 /* Ajuste para quando o nav estiver fixo */
 nav.fixed .nav-links ul li a {
@@ -180,7 +172,7 @@ nav.fixed .fa-times {
 .text-box {
     width: 90%;
     color: #fff;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -568,37 +560,72 @@ footer {
         display: block;
     }
 
-    .nav-links ul li a {
-        font-size: 12px;
+    nav {
+        padding: 2% 4%;
     }
 
-    /* Diminuir o padding dos itens do menu */
+    nav.fixed {
+        padding: 1% 4%;
+    }
+
+
+
+    nav img {
+        width: 150px;
+    }
+
+    .nav-links {
+        position: absolute;
+        background-color: #004daf;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+
+    nav.fixed .nav-links {
+        background-color: #004daf;
+    }
+
+    /* Remove o hover no mobile e usa display: none por padrão */
+    .nav-links ul li:hover>ul.dropdown {
+        display: none;
+        /* Desativa o hover no mobile */
+    }
+
+    /* Estiliza o dropdown no mobile */
+    .nav-links ul .has-dropdown ul.dropdown {
+        position: static;
+        /* Remove a posição absoluta para mobile */
+        background-color: #1b99ca;
+        /* Fundo azul escuro no mobile */
+        box-shadow: none;
+        /* Remove sombra no mobile, se necessário */
+        margin-left: 10px;
+        /* Indentação no mobile */
+        border-radius: 0;
+        /* Remove bordas arredondadas no mobile */
+        padding-top: 0;
+    }
+
+    /* Mostra o dropdown ao clicar (será controlado pelo JavaScript) */
+    .nav-links ul .has-dropdown.active ul.dropdown {
+        display: block;
+    }
+
+    nav.fixed .nav-links ul li a {
+        color: white;
+    }
+
     .nav-links ul li {
         padding: 8px 10px;
     }
 
-    /* Diminuir o espaçamento entre os itens */
-    .nav-links ul {
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Ajustar o tamanho do dropdown */
-    ul li ul.dropdown {
-        min-width: 100px;
-        padding-top: 0;
-        background-color: rgb(41, 144, 255);
-    }
-
-    /* Ajustar o espaçamento interno do dropdown */
-    ul li ul.dropdown li {
-        padding: 0px 10px;
-    }
-
-    html,
-    body {
-        width: 100%;
-        overflow-x: hidden;
+    .nav-links ul li a {
+        font-size: 12px;
     }
 
     nav .fa {
@@ -608,15 +635,8 @@ footer {
         cursor: pointer;
     }
 
-    .nav-links ul li {
-        font-size: 20px;
-        margin: 20px 0;
-        font-weight: bold;
-        display: block;
-    }
-
-    .nav-links .ul {
-        padding: 30px;
+    nav.fixed .fa {
+        color: white;
     }
 
     .logo {

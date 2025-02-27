@@ -202,7 +202,7 @@
 
         <!-- Serviços -->
         <section class="serviços">
-            <div>
+            <div class="container">
                 <p class="azul">
                     Trabalhe conosco
                 </p>
@@ -372,7 +372,7 @@
             const subHeader = document.querySelector('.sub-header');
             const subHeaderHeight = subHeader.offsetHeight;
 
-            if (window.scrollY >= subHeaderHeight - 10) {
+            if (window.scrollY >= subHeaderHeight - 1) {
                 nav.classList.add('fixed');
             } else {
                 nav.classList.remove('fixed');
