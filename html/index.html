@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JL Marine</title>
+    <title>JL Marine - Sobre</title>
     <link rel="icon" href="../img/icon-web.png" type="image/png">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -20,29 +20,29 @@
             emailjs.init("c428_m0OO36S2ukqb");
         });
     </script>
+
 </head>
 
 <body>
-
     <!-- Header -->
-    <section class="header">
+    <section class="sub-header">
         <!-- Navegação -->
-        <nav id="mainNav" class="mainNav">
+        <nav id="mainNav">
             <div class="logo">
-                <a href="index.html"> <img src="../img/logo-padrao.png" alt="logo da JL Marine"></a>
+                <a href="index.html"> <img src="../img/logo-padrao.png" alt="logo padrão da JL Marine"></a>
             </div>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul class="ul">
                     <li><a href="index.html">Início</a></li>
-                    <li>
+                    <li class="has-dropdown">
                         <a href="#">Sobre</a>
                         <ul class="dropdown">
                             <li><a href="sobre.html">A Empresa</a></li>
                             <li><a href="equipe.html">Equipe</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="has-dropdown">
                         <a href="#">Serviços</a>
                         <ul class="dropdown">
                             <li><a href="marine.html">Marine</a></li>
@@ -51,7 +51,7 @@
                             <li><a href="services.html">Mais...</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="has-dropdown">
                         <a href="#">Contato</a>
                         <ul class="dropdown">
                             <li><a href="contacts.html">Nos Contate</a></li>
@@ -68,9 +68,9 @@
             <a href="sobre.html" class="hero-btn">Saiba Mais</a>
 
         </div>
-
         <!-- End Navegação -->
     </section>
+
     <!-- End header -->
 
     <main>
@@ -202,7 +202,7 @@
 
         <!-- Serviços -->
         <section class="serviços">
-            <div class="container">
+            <div>
                 <p class="azul">
                     Trabalhe conosco
                 </p>
@@ -367,29 +367,62 @@
                 });
         }
 
-        var navLinks = document.getElementById("navLinks");
-        var menuIcon = document.querySelector(".fa-bars");
-        var closeIcon = document.querySelector(".fa-times");
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('mainNav');
+            const subHeader = document.querySelector('.sub-header');
+            const subHeaderHeight = subHeader.offsetHeight;
 
+            if (window.scrollY >= subHeaderHeight - 10) {
+                nav.classList.add('fixed');
+            } else {
+                nav.classList.remove('fixed');
+            }
+        });
+
+        // Funções do menu mobile
         function showMenu() {
-            navLinks.style.right = "0";
-            closeIcon.style.display = "block";  // Mostra o botão de fechar
-            menuIcon.style.display = "none";    // Esconde o botão de abrir
+            document.getElementById("navLinks").style.right = "0";
+            document.querySelector(".fa-times").style.display = "block";
+            document.querySelector(".fa-bars").style.display = "none";
         }
 
         function hideMenu() {
-            navLinks.style.right = "-200px";
-            closeIcon.style.display = "none";   // Esconde o botão de fechar
-            menuIcon.style.display = "block";   // Mostra o botão de abrir
+            document.getElementById("navLinks").style.right = "-200px";
+            document.querySelector(".fa-times").style.display = "none";
+            document.querySelector(".fa-bars").style.display = "block";
+            // Fecha todos os dropdowns ao fechar o menu
+            document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('active'));
         }
+
+        // Gerencia o dropdown no mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.getElementById('navLinks');
+            const dropdownItems = document.querySelectorAll('.has-dropdown');
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function (event) {
+                    // Verifica se estamos no modo mobile
+                    if (window.innerWidth <= 960) {
+                        event.preventDefault(); // Previne o comportamento padrão (scroll ou redirecionamento)
+                        this.classList.toggle('active'); // Alterna a visibilidade do dropdown
+                    }
+                });
+            });
+
+            // Fecha o dropdown se clicar fora
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target)) {
+                    dropdownItems.forEach(item => item.classList.remove('active'));
+                }
+            });
+        });
 
         // Esconder o botão de fechar por padrão quando a página carregar
         document.addEventListener("DOMContentLoaded", function () {
-            closeIcon.style.display = "none";
+            document.querySelector(".fa-times").style.display = "none";
         });
 
         // Clique do botão "btn-orcamento" Redestina
-
         document.getElementById("btn-orcamento").addEventListener("click", function () {
             window.open("https://www.redestina.com.br/#pricing", "_blank");
         });
@@ -412,9 +445,8 @@
                     console.error('Erro ao copiar: ', err);
                 });
         }
-
     </script>
-    <script src="js/heder-fixed.js"></script>
+    <!-- End Javascript -->
 
 
     <!-- End Javascript -->

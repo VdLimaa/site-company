@@ -15,7 +15,6 @@ body {
 }
 
 /* variáveis globais*/
-
 :root {
     --cinza: #333;
     --branco: white;
@@ -40,20 +39,35 @@ body {
     font-size: 27px;
     display: inline-block;
     padding: 20px;
-    /* Ajusta o espaçamento interno */
     border: 3px solid rgb(255, 255, 255);
-    /* Cor e espessura da borda */
     border-radius: 20%;
-    /* Torna a borda circular */
     text-align: center;
     font-weight: bold;
 }
 
+/* Estilo base do nav (sem transição, posição inicial) */
+/* Estilo base do nav (visível no topo, sem transição) */
 nav {
     display: flex;
     padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1000;
+
+}
+
+/* Estilo do nav fixo com transição (deslizamento de cima para baixo) */
+nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Mantém o fundo preto com opacidade */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 1% 6%;
+
 }
 
 nav img {
@@ -70,7 +84,6 @@ nav img {
     display: inline-block;
     padding: 8px 12px;
     position: relative;
-
 }
 
 .nav-links ul li a {
@@ -94,93 +107,101 @@ nav img {
     width: 100%;
 }
 
-/* Mostrar o dropdown ao passar o mouse */
-.nav-links ul li:hover>ul.dropdown {
-    display: block;
-}
-
 /* Estilo do dropdown */
 ul li ul.dropdown {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(41, 145, 255, 0.425);
+    background-color: rgba(5, 126, 255, 0.432);
     z-index: 999;
     display: none;
-    /* Escondido por padrão */
     min-width: 130px;
-    /* Ajuste o tamanho do menu dropdown */
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Itens do dropdown */
-ul li ul.dropdown li {
-    display: block;
-    padding: 10px;
-}
-
-/* Links dentro do dropdown */
-ul li ul.dropdown li a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s;
     text-align: left;
 }
 
-/* Hover nos itens do dropdown */
-ul li ul.dropdown li:hover {
-    background: #003580;
+.nav-links ul li:hover>ul.dropdown {
+    display: block;
 }
 
+.nav-links ul li ul.dropdown li:hover {
+    background-color: #031a7e;
+
+    width: 100%;
+
+}
+
+/* Estilo do dropdown quando o nav está fixo */
+nav.fixed ul li ul.dropdown {
+    background-color:  rgba(3, 46, 92, 0.918);
+    /* Fundo branco com opacidade no nav fixo */
+}
+
+/* Links dentro do dropdown (mantendo a cor branca no estado fixo) */
+nav.fixed ul li ul.dropdown li a {
+    color: white;
+    /* Texto azul escuro para contraste */
+}
+
+/* Hover nos itens do dropdown no estado fixo */
+nav.fixed ul li ul.dropdown li:hover {
+    background: rgba(27, 153, 202, 0.2);
+    /* Tom mais claro de azul-claro com opacidade */
+}
+
+/* Ajuste para o dropdown no mobile */
 
 
-/* Menu icon*/
 
+
+/* Ajuste para quando o nav estiver fixo */
+nav.fixed .nav-links ul li a {
+    color: white;
+}
+
+/* Menu icon */
 nav .fa {
     display: none;
-
+    color: #fff;
 }
 
 nav .fa-bars {
     font-size: 25px;
 }
 
+/* Ajuste para o ícone de menu no nav fixo */
+nav.fixed .fa-bars,
+nav.fixed .fa-times {
+    color: white;
+}
+
 /* End menu icon */
 
+/* Sobre as Seções (Mantidas como Estão) */
 .about-us {
     width: 80%;
     margin: 50px auto;
-    /* Adiciona espaçamento acima e abaixo */
     padding: 50px 0;
-    /* Ajuste extra para evitar que fique colado */
 }
 
 .about-us .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Distribui melhor os elementos */
     gap: 40px;
-    /* Espaço entre a imagem e o texto */
 }
 
 .about-us .about-img {
     width: 50%;
     text-align: center;
-    /* Centraliza a imagem dentro do container */
 }
 
 .about-us .about-img img {
     width: 100%;
     margin: auto;
-    /* Garante centralização */
     border-radius: 10px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-    /* Adiciona sombra suave */
 }
 
 .about-us .about-text {
@@ -193,7 +214,6 @@ nav .fa-bars {
     font-size: 2.5em;
     color: #004daf;
     margin-bottom: 20px;
-    /* Espaço abaixo do título */
 }
 
 .about-us .about-text p {
@@ -201,24 +221,16 @@ nav .fa-bars {
     color: black;
     font-size: 1.1em;
     line-height: 1.8;
-
-
 }
 
 /* Section about-empresa */
-
 .about-empresa .container {
     width: 90%;
-    /* DIMINUI AS MARGENS LATERAIS */
     max-width: 1300px;
-    /* EVITA QUE FIQUE MUITO LARGO EM TELAS GRANDES */
     margin: 30px auto;
-    /* CENTRALIZA O CONTAINER */
     display: flex;
     gap: 20px;
-    /* MANTÉM ESPAÇAMENTO ENTRE OS CARDS */
 }
-
 
 .about-empresa .card {
     width: 100%;
@@ -230,7 +242,6 @@ nav .fa-bars {
 
 .about-empresa .card:hover {
     box-shadow: 0px 10px 10px 8px #031a7e;
-
 }
 
 .about-empresa .card i {
@@ -247,8 +258,6 @@ nav .fa-bars {
 .about-empresa .card p {
     padding: 0 0 15px;
 }
-
-/* footer */
 
 /* footer */
 
@@ -393,9 +402,34 @@ footer {
 
 /* end footer */
 
-
+/* Media Queries (Mantidas como Estão, com Ajustes para o nav fixo) */
 
 @media (max-width: 960px) {
+    .sub-header {
+        height: 40vh;
+        background-size: cover;
+    }
+
+    .sub-header h1 {
+        margin-top: 30px;
+        font-size: 25px;
+        padding: 20px;
+    }
+
+    nav {
+        padding: 2% 4%;
+    }
+
+    nav.fixed {
+        padding: 1% 4%;
+    }
+
+
+
+    nav img {
+        width: 150px;
+    }
+
     .nav-links {
         position: absolute;
         background-color: #004daf;
@@ -408,53 +442,46 @@ footer {
         transition: 1s;
     }
 
-    ul li>a {
+    nav.fixed .nav-links {
+        background-color: #004daf;
+    }
+
+    /* Remove o hover no mobile e usa display: none por padrão */
+    .nav-links ul li:hover>ul.dropdown {
+        display: none;
+        /* Desativa o hover no mobile */
+    }
+
+    /* Estiliza o dropdown no mobile */
+    .nav-links ul .has-dropdown ul.dropdown {
+        position: static;
+        /* Remove a posição absoluta para mobile */
+        background-color: #1b99ca;
+        /* Fundo azul escuro no mobile */
+        box-shadow: none;
+        /* Remove sombra no mobile, se necessário */
+        margin-left: 10px;
+        /* Indentação no mobile */
+        border-radius: 0;
+        /* Remove bordas arredondadas no mobile */
+        padding-top: 0;
+    }
+
+    /* Mostra o dropdown ao clicar (será controlado pelo JavaScript) */
+    .nav-links ul .has-dropdown.active ul.dropdown {
         display: block;
     }
 
-    ul li.active>ul.dropdown {
-        display: block;
+    nav.fixed .nav-links ul li a {
+        color: white;
+    }
+
+    .nav-links ul li {
+        padding: 8px 10px;
     }
 
     .nav-links ul li a {
         font-size: 12px;
-        /* Ajuste o tamanho da fonte conforme necessário */
-    }
-
-    /* Diminuir o padding dos itens do menu */
-    .nav-links ul li {
-        padding: 8px 10px;
-        /* Ajuste os valores de padding conforme necessário */
-    }
-
-    /* Diminuir o espaçamento entre os itens */
-    .nav-links ul {
-        margin: 0;
-        /* Remove margens extras */
-        padding: 0;
-        /* Remove o padding, se necessário */
-    }
-
-    /* Ajustar o tamanho do dropdown */
-    ul li ul.dropdown {
-        min-width: 100px;
-        /* Ajuste a largura do dropdown */
-        padding-top: 0;
-        background-color: rgb(41, 144, 255);
-    }
-
-    /* Ajustar o espaçamento interno do dropdown */
-    ul li ul.dropdown li {
-        padding: 0px 10px;
-        /* Ajuste os valores de padding conforme necessário */
-    }
-
-
-
-    html,
-    body {
-        width: 100%;
-        overflow-x: hidden;
     }
 
     nav .fa {
@@ -464,47 +491,8 @@ footer {
         cursor: pointer;
     }
 
-    .nav-links .ul li {
-        font-size: 20px;
-        margin: 20px 0;
-        font-weight: bold;
-        display: block;
-    }
-
-    .nav-links .ul {
-        padding: 30px;
-    }
-
-    .logo {
-        position: relative;
-        left: -27px;
-        margin-top: 3px;
-    }
-
-    .sub-header {
-        height: 40vh;
-        width: 100%;
-        background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('../img/background-about.jpg');
-        background-position: center;
-        background-size: cover;
-        text-align: center;
-        color: #fff;
-        position: relative;
-    }
-
-    .sub-header h1 {
-        margin-top: 30px;
-        font-size: 25px;
-        display: inline-block;
-        padding: 20px;
-        border: 3px solid rgb(255, 255, 255);
-        border-radius: 20%;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    main .container {
-        flex-direction: column;
+    nav.fixed .fa {
+        color: white;
     }
 
     .about-us .container {
@@ -513,27 +501,9 @@ footer {
         gap: 20px;
     }
 
-    .about-us .about-text {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: left;
-        line-height: 1.8;
-        font-size: 1.2rem;
-        font-weight: 400;
-        padding: 20px;
-    }
-
+    .about-us .about-text,
     .about-us .about-img {
         width: 100%;
-        text-align: center;
-    }
-
-    .about-us .about-img img {
-        width: 100%;
-        max-width: 450px;
-        border-radius: 10px;
-        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .about-empresa .container {
@@ -542,10 +512,6 @@ footer {
 
     .about-empresa .card {
         width: 100%;
-    }
-
-    .about-empresa .card:hover {
-        box-shadow: 0px 10px 10px 8px #031a7e;
     }
 
     #footer_content {
@@ -566,58 +532,9 @@ footer {
         max-width: 300px;
         margin: 0 auto;
     }
-
-    .about-us .about-text p {
-        text-align: left;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        hyphens: none;
-    }
-
-    ul li>a {
-        display: block;
-    }
-
-    ul li.active>ul.dropdown {
-        display: block;
-    }
-
-    .nav-links ul li a {
-        font-size: 12px;
-        /* Ajuste o tamanho da fonte conforme necessário */
-    }
-
-    /* Diminuir o padding dos itens do menu */
-    .nav-links ul li {
-        padding: 8px 10px;
-        /* Ajuste os valores de padding conforme necessário */
-    }
-
-    /* Diminuir o espaçamento entre os itens */
-    .nav-links ul {
-        margin: 0;
-        /* Remove margens extras */
-        padding: 0;
-        /* Remove o padding, se necessário */
-    }
-
-    /* Ajustar o tamanho do dropdown */
-    ul li ul.dropdown {
-        min-width: 100px;
-        /* Ajuste a largura do dropdown */
-        padding-top: 0;
-    }
-
-    /* Ajustar o espaçamento interno do dropdown */
-    ul li ul.dropdown li {
-        padding: 0px 10px;
-        /* Ajuste os valores de padding conforme necessário */
-    }
-
 }
 
 @media (max-width: 768px) {
-
     .nav-links ul {
         padding-top: 50px;
     }
@@ -632,47 +549,59 @@ footer {
         font-size: 18px;
     }
 
-    .menu-icons {
-        display: flex;
-        align-items: center;
-    }
-
     nav .fa {
-        display: block;
-        color: white;
         font-size: 25px;
-        cursor: pointer;
     }
 
-    .about-us {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-us .about-img,
     .about-us .about-text {
-        width: 100%;
+        padding: 20px;
+        text-align: left;
     }
 
     .about-empresa .container {
-        flex-direction: column;
         gap: 20px;
+    }
+
+    #footer_content {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
 @media (max-width: 430px) {
+    .sub-header {
+        height: 30vh;
+    }
+
+    .sub-header h1 {
+        margin-top: 20px;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    nav {
+        padding: 2% 3%;
+    }
+
+    nav.fixed {
+        padding: 1% 3%;
+    }
+
+    nav img {
+        width: 120px;
+    }
+
+    .about-us .about-text {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .about-us .about-img img {
+        max-width: 300px;
+    }
+
     #footer_content {
         grid-template-columns: repeat(1, 1fr);
         padding: 3rem 2rem;
-    }
-
-    #footer_content,
-    #footer_subscribe,
-    #footer_contacts,
-    .footer-list {
-        padding-left: 5%;
-        padding-right: 5%;
     }
 
     #input-group {
@@ -680,24 +609,5 @@ footer {
         padding: 0;
         border: none;
         box-shadow: none;
-
-    }
-
-    .about-us .about-text {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: left;
-        line-height: 1.6;
-        font-size: 1.1rem;
-        font-weight: 400;
-        padding: 20px;
-    }
-
-    .about-us .about-text p {
-        text-align: left;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        hyphens: none;
     }
 }

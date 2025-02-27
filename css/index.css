@@ -8,7 +8,6 @@
 }
 
 /* variáveis globais*/
-
 :root {
     --cinza: #333;
     --branco: white;
@@ -22,7 +21,6 @@ body {
     overflow-x: hidden;
 }
 
-
 html,
 body {
     width: 100%;
@@ -34,18 +32,10 @@ body {
     scroll-behavior: smooth;
 }
 
-/* classes reutilizaveis*/
 
-.container {
-    max-width: 1440px;
-    padding: 0 5%;
-    margin: 0 auto
-}
 
 /* Classes INDEX */
-
-
-.header {
+.sub-header {
     min-height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('../img/background-main.jpg');
@@ -56,21 +46,29 @@ body {
     position: relative;
 }
 
+/* Estilo base do nav (visível no topo, sem transição) */
 nav {
     display: flex;
     padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
-
+    position: relative;
     z-index: 1000;
+
 }
 
+/* Estilo do nav fixo com transição (deslizamento de cima para baixo) */
 nav.fixed {
-    position: fixed;
-    /* Classe que será adicionada/removida via JS */
+    position: fixed ;
     top: 0;
     left: 0;
-    z-index: 1001;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Mantém o fundo preto com opacidade */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 1% 6%;
+    z-index: 9999;
+
 }
 
 nav img {
@@ -87,7 +85,6 @@ nav img {
     display: inline-block;
     padding: 8px 12px;
     position: relative;
-
 }
 
 .nav-links ul li a {
@@ -111,51 +108,79 @@ nav img {
     width: 100%;
 }
 
-.nav-links ul li:hover>ul.dropdown {
-    display: block;
-}
-
 /* Estilo do dropdown */
 ul li ul.dropdown {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(41, 145, 255, 0.425);
-    z-index: 999;
+    background-color: rgba(5, 126, 255, 0.432);
+    z-index: 9999;
     display: none;
-    /* Escondido por padrão */
     min-width: 130px;
-    /* Ajuste o tamanho do menu dropdown */
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Itens do dropdown */
-ul li ul.dropdown li {
-    display: block;
-    padding: 10px;
-}
-
-/* Links dentro do dropdown */
-ul li ul.dropdown li a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s;
     text-align: left;
 }
 
-/* Hover nos itens do dropdown */
-ul li ul.dropdown li:hover {
-    background: #003580;
+.nav-links ul li:hover>ul.dropdown {
+    display: block;
+}
+
+.nav-links ul li ul.dropdown li:hover {
+    background-color: #031a7e;
+
+    width: 100%;
+
+}
+
+/* Estilo do dropdown quando o nav está fixo */
+nav.fixed ul li ul.dropdown {
+    background-color:  rgba(3, 46, 92, 0.918);
+    /* Fundo branco com opacidade no nav fixo */
+}
+
+/* Links dentro do dropdown (mantendo a cor branca no estado fixo) */
+nav.fixed ul li ul.dropdown li a {
+    color: white;
+    /* Texto azul escuro para contraste */
+}
+
+/* Hover nos itens do dropdown no estado fixo */
+nav.fixed ul li ul.dropdown li:hover {
+    background: rgba(27, 153, 202, 0.2);
+    /* Tom mais claro de azul-claro com opacidade */
+}
+
+/* Ajuste para o dropdown no mobile */
+
+
+
+
+/* Ajuste para quando o nav estiver fixo */
+nav.fixed .nav-links ul li a {
+    color: white;
+}
+
+/* Menu icon */
+nav .fa {
+    display: none;
+    color: #fff;
+}
+
+nav .fa-bars {
+    font-size: 25px;
+}
+
+/* Ajuste para o ícone de menu no nav fixo */
+nav.fixed .fa-bars,
+nav.fixed .fa-times {
+    color: white;
 }
 
 .text-box {
     width: 90%;
     color: #fff;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -166,7 +191,7 @@ ul li ul.dropdown li:hover {
     font-size: 62px;
 }
 
-text-box p {
+.text-box p {
     margin: 10px 0 40px;
     font-size: 14px;
     color: #fff;
@@ -193,71 +218,17 @@ text-box p {
     transition: 1s;
 }
 
-
-
-/* Menu icon*/
-
-nav .fa {
-    display: none;
-
-}
-
-nav .fa-bars {
-    font-size: 25px;
-}
-
-/* End menu icon */
-
 /* Main */
 
-main .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.main-text {
-    width: 50%;
-    color: #031a7e;
-}
-
-.main-text h1 {
-    font-size: 5rem;
-
-}
-
-.main-text div {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.main-img {
-    width: 50%;
-}
-
-.main-img img {
-    width: 100%;
-}
-
-main {
-
-    /* Usa a variável cinza */
-    padding: 60px 20px;
-    /* Adiciona espaçamento interno */
-    color: #031a7e;
-    /* Texto branco para contraste */
-}
-
-/* Menu icon*/
 
 
+
+/* Diferenciais */
 .diferenciais .container {
     display: flex;
     justify-content: space-between;
     margin: 30px auto;
     padding: 40px 20px;
-    /* Adiciona padding semelhante ao da Comex Online */
 }
 
 .diferenciais .card {
@@ -275,19 +246,16 @@ main {
     min-height: 0;
     max-height: auto;
     overflow: hidden;
-    /* Adiciona um leve fundo ou sombra para simular o estilo da Comex Online */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .diferenciais .card:hover {
     box-shadow: 0px 10px 67px 8px #031a7e;
-    /* Mantém o hover original */
 }
 
 .diferenciais .card svg {
     width: 53px;
     color: var(--azul-escuro);
-    /* Mantém a cor azul escuro (#004daf) */
     margin-bottom: 10px;
 }
 
@@ -296,9 +264,7 @@ main {
     font-weight: 600;
     text-align: left;
     font-size: 1.2rem;
-    /* Ajusta para um tamanho maior, como na Comex Online */
     color: var(--azul-escuro);
-    /* Mantém a cor azul escuro para consistência */
 }
 
 .diferenciais .card p {
@@ -308,18 +274,14 @@ main {
     max-width: 100%;
     word-wrap: break-word;
     font-size: 1rem;
-    /* Ajusta para um tamanho de texto típico da Comex Online */
     color: #333;
-    /* Cor padrão para texto, como no seu body */
 }
 
 /* Section Redestina */
-
 .redestina .container {
     display: flex;
     align-items: center;
     margin-top: 80px;
-    /* Aumenta o espaçamento superior para garantir maior separação */
 }
 
 .redestina .redestina-img {
@@ -376,7 +338,6 @@ main {
 }
 
 /* Serviços */
-
 .serviços .container {
     display: flex;
     flex-direction: column;
@@ -410,7 +371,6 @@ main {
     text-align: center;
     padding: 30px 0;
     border-radius: 20px;
-    /* background-color: red; */
     box-shadow: 0px 35px 97px -15px rgba(0, 0, 0, 0.08);
 }
 
@@ -445,7 +405,6 @@ main {
 /* End Serviços */
 
 /* footer */
-
 footer {
     width: 100%;
     color: #fff;
@@ -457,7 +416,6 @@ footer {
     grid-template-columns: repeat(4, 1fr);
     padding: 3rem 3.5rem;
 }
-
 
 #footer_contacts h1 {
     margin-bottom: 0.75rem;
@@ -495,7 +453,6 @@ footer {
     color: #fff;
     transition: all 0.4s;
     font-size: 0.82rem;
-
 }
 
 .footer-list .footer-link:hover {
@@ -553,45 +510,32 @@ footer {
 
 .footer-list li {
     white-space: normal;
-    /* Permite quebra de linha */
     max-width: 230px;
-    /* Define uma largura para forçar a quebra */
     word-wrap: break-word;
-    /* Quebra palavras longas se necessário */
 }
 
 .notification {
     position: fixed;
     bottom: 20px;
-    /* Distância do fundo */
     left: 50%;
-    /* Centraliza horizontalmente */
     transform: translateX(-50%);
-    /* Ajusta para o centro */
     background-color: #303030;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
     opacity: 0;
-    /* Inicia invisível */
     transition: opacity 0.5s ease;
-    /* Animação de fade */
     z-index: 1000;
-    /* Garante que fique acima de outros elementos */
 }
 
 .notification.show {
     opacity: 1;
-    /* Torna visível */
 }
 
 /* end footer */
 
-
 /* Responsivo */
-
 @media (max-width: 960px) {
-
     .text-box h1 {
         font-size: 55px;
     }
@@ -626,27 +570,22 @@ footer {
 
     .nav-links ul li a {
         font-size: 12px;
-        /* Ajuste o tamanho da fonte conforme necessário */
     }
 
     /* Diminuir o padding dos itens do menu */
     .nav-links ul li {
         padding: 8px 10px;
-        /* Ajuste os valores de padding conforme necessário */
     }
 
     /* Diminuir o espaçamento entre os itens */
     .nav-links ul {
         margin: 0;
-        /* Remove margens extras */
         padding: 0;
-        /* Remove o padding, se necessário */
     }
 
     /* Ajustar o tamanho do dropdown */
     ul li ul.dropdown {
         min-width: 100px;
-        /* Ajuste a largura do dropdown */
         padding-top: 0;
         background-color: rgb(41, 144, 255);
     }
@@ -654,9 +593,7 @@ footer {
     /* Ajustar o espaçamento interno do dropdown */
     ul li ul.dropdown li {
         padding: 0px 10px;
-        /* Ajuste os valores de padding conforme necessário */
     }
-
 
     html,
     body {
@@ -688,6 +625,18 @@ footer {
         margin-top: 3px;
     }
 
+    nav {
+        padding: 2% 4%;
+    }
+
+    nav.fixed {
+        padding: 1% 4%;
+    }
+
+    nav img {
+        width: 150px;
+    }
+
     main .container {
         flex-direction: column;
     }
@@ -708,14 +657,9 @@ footer {
 
     main .btn-gradiente {
         width: 100px;
-        /* Define a largura */
         height: 40px;
-        /* Define a altura */
         font-size: 15px;
-        /* Aumenta o tamanho do texto */
         padding: 10px 20px;
-        /* Ajusta o espaço interno */
-        margin-top: 15px;
         margin: 20px auto;
     }
 
@@ -727,9 +671,8 @@ footer {
         width: 100%;
     }
 
-    diferenciais .card:hover {
+    .diferenciais .card:hover {
         box-shadow: 0px 10px 10px 8px #031a7e;
-
     }
 
     .redestina .container {
@@ -753,7 +696,6 @@ footer {
     .redestina .container a {
         color: black;
         font-size: 0.9em;
-
     }
 
     .redestina .redestina-img img {
@@ -796,11 +738,9 @@ footer {
         max-width: 300px;
         margin: 0 auto;
     }
-
 }
 
 @media (max-width: 768px) {
-
     .nav-links ul {
         padding-top: 50px;
     }
@@ -832,13 +772,10 @@ footer {
         padding: 0;
         border: none;
         box-shadow: none;
-
     }
-
 }
 
 @media (max-width: 430px) {
-
     main .container .main-text h1 {
         font-size: 3rem;
     }
@@ -853,8 +790,5 @@ footer {
         padding: 0;
         border: none;
         box-shadow: none;
-
     }
-
-
 }
