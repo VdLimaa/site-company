@@ -32,7 +32,7 @@
                 <a href="index.html"> <img src="../img/logo-padrao.png" alt="logo padrão da JL Marine"></a>
             </div>
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <i class="fa fa-times"></i>
                 <ul class="ul">
                     <li><a href="index.html">Início</a></li>
                     <li class="has-dropdown">
@@ -60,7 +60,7 @@
                     </li>
                 </ul>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <i class="fa fa-bars"></i>
         </nav>
         <h1>Sobre Nós</h1>
         <!-- End Navegação -->
@@ -221,107 +221,17 @@
     </footer>
     <!-- end footer -->
 
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+
     <!-- Javascript -->
-    <script>
-        function emailCatch() {
-            let emailValue = document.getElementById("emailFooter").value;
-
-            // Validação básica
-            if (!emailValue) {
-                alert("Por favor, insira um e-mail!");
-                return;
-            }
-
-            let parms = {
-                email: emailValue,
-            };
-
-            emailjs.send("service_myyu0e7", "template_09oxatb", parms)
-                .then(function (response) {
-                    alert("E-mail enviado com sucesso!");
-                    // Limpar o campo correto após o envio
-                    document.getElementById("emailFooter").value = "";
-                })
-                .catch(function (error) {
-                    alert("Falha ao enviar o e-mail: " + error);
-                });
-        }
-
-        window.addEventListener('scroll', function () {
-            const nav = document.getElementById('mainNav');
-            const subHeader = document.querySelector('.sub-header');
-            const subHeaderHeight = subHeader.offsetHeight;
-
-            if (window.scrollY >= subHeaderHeight - 10) {
-                nav.classList.add('fixed');
-            } else {
-                nav.classList.remove('fixed');
-            }
-        });
-
-        // Funções do menu mobile
-        function showMenu() {
-            document.getElementById("navLinks").style.right = "0";
-            document.querySelector(".fa-times").style.display = "block";
-            document.querySelector(".fa-bars").style.display = "none";
-        }
-
-        function hideMenu() {
-            document.getElementById("navLinks").style.right = "-200px";
-            document.querySelector(".fa-times").style.display = "none";
-            document.querySelector(".fa-bars").style.display = "block";
-            // Fecha todos os dropdowns ao fechar o menu
-            document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('active'));
-        }
-
-        // Gerencia o dropdown no mobile
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.getElementById('navLinks');
-            const dropdownItems = document.querySelectorAll('.has-dropdown');
-
-            dropdownItems.forEach(item => {
-                item.addEventListener('click', function (event) {
-                    // Verifica se estamos no modo mobile
-                    if (window.innerWidth <= 960) {
-                        event.preventDefault(); // Previne o comportamento padrão (scroll ou redirecionamento)
-                        this.classList.toggle('active'); // Alterna a visibilidade do dropdown
-                    }
-                });
-            });
-
-            // Fecha o dropdown se clicar fora
-            document.addEventListener('click', function (event) {
-                if (!navLinks.contains(event.target)) {
-                    dropdownItems.forEach(item => item.classList.remove('active'));
-                }
-            });
-        });
-
-        // Esconder o botão de fechar por padrão quando a página carregar
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelector(".fa-times").style.display = "none";
-        });
-
-        function copyAndNotify(phoneNumber) {
-            // Copia o número para a área de transferência
-            navigator.clipboard.writeText(phoneNumber)
-                .then(() => {
-                    // Mostra a notificação
-                    const notification = document.getElementById('notification');
-                    notification.textContent = 'Número copiado!';
-                    notification.classList.add('show');
-
-                    // Esconde após 2 segundos
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 1000);
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                });
-        }
-    </script>
+    <script src="../js/main.js"></script>
     <!-- End Javascript -->
+
+
 
 </body>
 

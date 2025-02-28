@@ -27,7 +27,7 @@
     <!-- Header -->
     <section class="sub-header">
         <!-- Navegação -->
-        <nav>
+        <nav id="mainNav">
             <div class="logo">
                 <a href="index.html"> <img src="../img/logo-padrao.png" alt="logo padrão da JL Marine"></a>
             </div>
@@ -35,14 +35,14 @@
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul class="ul">
                     <li><a href="index.html">Início</a></li>
-                    <li>
+                    <li class="has-dropdown">
                         <a href="#">Sobre</a>
                         <ul class="dropdown">
                             <li><a href="sobre.html">A Empresa</a></li>
                             <li><a href="equipe.html">Equipe</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="has-dropdown">
                         <a href="#">Serviços</a>
                         <ul class="dropdown">
                             <li><a href="marine.html">Marine</a></li>
@@ -51,7 +51,7 @@
                             <li><a href="services.html">Mais...</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="has-dropdown">
                         <a href="#">Contato</a>
                         <ul class="dropdown">
                             <li><a href="contacts.html">Nos Contate</a></li>
@@ -60,10 +60,9 @@
                     </li>
                 </ul>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <i class="fa fa-bars"></i>
         </nav>
         <h1>Serviços</h1>
-
         <!-- End Navegação -->
     </section>
     <!-- End header -->
@@ -134,7 +133,7 @@
                 </a>
                 <a href="../html/desembaraco-aduaneiro.html" class="card">
                     <i class="fa-solid fa-door-closed"></i>
-                    <h4>Desenbaraço Aduaneiro</h4>
+                    <h4>Desembaraço Aduaneiro</h4>
                 </a>
                 <a href="../html/log-porta.html" class="card">
                     <i class="fa-solid fa-boxes-stacked"></i>
@@ -217,79 +216,20 @@
             </div>
         </div>
         <div id="footer_copyright">
-            <p>Todos os direitos reservados - &copy; 2025 JL Marine.</p>
-
-
+            <p>Todos os direitos reservados - © 2025 JL Marine.</p>
         </div>
     </footer>
     <!-- end footer -->
 
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <!-- End Botão Voltar ao Topo -->
+
     <!-- Javascript -->
-    <script>
-        function emailCatch() {
-            let emailValue = document.getElementById("emailFooter").value;
-
-            // Validação básica
-            if (!emailValue) {
-                alert("Por favor, insira um e-mail!");
-                return;
-            }
-
-            let parms = {
-                email: emailValue,
-            };
-
-            emailjs.send("service_myyu0e7", "template_09oxatb", parms)
-                .then(function (response) {
-                    alert("E-mail enviado com sucesso!");
-                    // Limpar o campo correto após o envio
-                    document.getElementById("emailFooter").value = "";
-                })
-                .catch(function (error) {
-                    alert("Falha ao enviar o e-mail: " + error);
-                });
-        }
-
-        var navLinks = document.getElementById("navLinks");
-        var menuIcon = document.querySelector(".fa-bars");
-        var closeIcon = document.querySelector(".fa-times");
-
-        function showMenu() {
-            navLinks.style.right = "0";
-            closeIcon.style.display = "block";  // Mostra o botão de fechar
-            menuIcon.style.display = "none";    // Esconde o botão de abrir
-        }
-
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-            closeIcon.style.display = "none";   // Esconde o botão de fechar
-            menuIcon.style.display = "block";   // Mostra o botão de abrir
-        }
-
-        // Esconder o botão de fechar por padrão quando a página carregar
-        document.addEventListener("DOMContentLoaded", function () {
-            closeIcon.style.display = "none";
-        });
-
-        function copyAndNotify(phoneNumber) {
-            // Copia o número para a área de transferência
-            navigator.clipboard.writeText(phoneNumber)
-                .then(() => {
-                    // Mostra a notificação
-                    const notification = document.getElementById('notification');
-                    notification.textContent = 'Número copiado!';
-                    notification.classList.add('show');
-
-                    // Esconde após 2 segundos
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 1000);
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                });
-        }
-    </script>
+    <script src="../js/main.js"></script>
+    <!-- End Javascript -->
 </body>
 
 </html>

@@ -1,37 +1,11 @@
-/* Redefine as margens e preenchimentos padrões */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    max-width: 100vw;
-    box-sizing: border-box;
-}
+@import url(footer.css);
+@import url(header.css);
 
-body {
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-}
 
-/* variáveis globais*/
-:root {
-    --cinza: #333;
-    --branco: white;
-    --azul-claro: #1b99ca;
-    --azul-escuro: #004daf;
-    --degrade-btn: linear-gradient(#1b99ca, #004daf);
-}
+/* Sub Header */
 
 .sub-header {
-    height: 85vh;
-    width: 100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('../img/background-about.jpg');
-    background-position: center;
-    background-size: cover;
-    text-align: center;
-    color: #fff;
-    position: relative;
 }
 
 .sub-header h1 {
@@ -45,140 +19,10 @@ body {
     font-weight: bold;
 }
 
-/* Estilo base do nav (sem transição, posição inicial) */
-/* Estilo base do nav (visível no topo, sem transição) */
-nav {
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 1000;
+/* End Sub Header */
 
-}
+/* Section about-us */
 
-/* Estilo do nav fixo com transição (deslizamento de cima para baixo) */
-nav.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Mantém o fundo preto com opacidade */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    padding: 1% 6%;
-
-}
-
-nav img {
-    width: 200px;
-}
-
-.nav-links {
-    flex: 1;
-    text-align: right;
-}
-
-.nav-links ul li {
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
-}
-
-.nav-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.nav-links ul li::after {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #1b99ca;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-
-.nav-links ul li:hover::after {
-    width: 100%;
-}
-
-/* Estilo do dropdown */
-ul li ul.dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(5, 126, 255, 0.432);
-    z-index: 999;
-    display: none;
-    min-width: 130px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    text-align: left;
-}
-
-.nav-links ul li:hover>ul.dropdown {
-    display: block;
-}
-
-.nav-links ul li ul.dropdown li:hover {
-    background-color: #031a7e;
-
-    width: 100%;
-
-}
-
-/* Estilo do dropdown quando o nav está fixo */
-nav.fixed ul li ul.dropdown {
-    background-color:  rgba(3, 46, 92, 0.918);
-    /* Fundo branco com opacidade no nav fixo */
-}
-
-/* Links dentro do dropdown (mantendo a cor branca no estado fixo) */
-nav.fixed ul li ul.dropdown li a {
-    color: white;
-    /* Texto azul escuro para contraste */
-}
-
-/* Hover nos itens do dropdown no estado fixo */
-nav.fixed ul li ul.dropdown li:hover {
-    background: rgba(27, 153, 202, 0.2);
-    /* Tom mais claro de azul-claro com opacidade */
-}
-
-/* Ajuste para o dropdown no mobile */
-
-
-
-
-/* Ajuste para quando o nav estiver fixo */
-nav.fixed .nav-links ul li a {
-    color: white;
-}
-
-/* Menu icon */
-nav .fa {
-    display: none;
-    color: #fff;
-}
-
-nav .fa-bars {
-    font-size: 25px;
-}
-
-/* Ajuste para o ícone de menu no nav fixo */
-nav.fixed .fa-bars,
-nav.fixed .fa-times {
-    color: white;
-}
-
-/* End menu icon */
-
-/* Sobre as Seções (Mantidas como Estão) */
 .about-us {
     width: 80%;
     margin: 50px auto;
@@ -223,7 +67,10 @@ nav.fixed .fa-times {
     line-height: 1.8;
 }
 
+/* End Section about-us */
+
 /* Section about-empresa */
+
 .about-empresa .container {
     width: 90%;
     max-width: 1300px;
@@ -259,246 +106,20 @@ nav.fixed .fa-times {
     padding: 0 0 15px;
 }
 
-/* footer */
+/* End Section about-empresa */
 
-footer {
-    width: 100%;
-    color: #fff;
-}
-
-#footer_content {
-    background-color: #004daf;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 3rem 3.5rem;
-}
-
-
-#footer_contacts h1 {
-    margin-bottom: 0.75rem;
-}
-
-#social_medias {
-    display: flex;
-    gap: 1.8rem;
-    margin-top: 1.5rem;
-}
-
-#social_medias .footer-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.5rem;
-    width: 1.5rem;
-    color: white;
-    border-radius: 50%;
-    transition: all 0.4s;
-}
-
-#social_medias .footer-link:hover {
-    color: #1b99ca;
-}
-
-.footer-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
-}
-
-.footer-list .footer-link {
-    color: #fff;
-    transition: all 0.4s;
-    font-size: 0.82rem;
-
-}
-
-.footer-list .footer-link:hover {
-    color: #1b99ca;
-}
-
-#footer_subscribe {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-#footer_subscribe p {
-    color: #fff;
-}
-
-#input-group {
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
-    background-color: #c7c7ee;
-}
-
-#input-group input {
-    all: unset;
-    padding: 0.75rem;
-    width: 100%;
-    color: black;
-}
-
-#input-group button {
-    background-color: #1b99ca;
-    border: none;
-    color: white;
-    padding: 0px 1.25rem;
-    font-size: 1.125rem;
-    height: 100%;
-    border-radius: 0px 4px 4px 0px;
-    cursor: pointer;
-    transition: all 0.4s;
-}
-
-#input-group button:hover {
-    opacity: 0.8;
-}
-
-#footer_copyright {
-    display: flex;
-    justify-content: center;
-    background-color: #031a7e;
-    font-size: 0.9rem;
-    padding: 1.5rem;
-    font-weight: 100;
-}
-
-.footer-list li {
-    white-space: normal;
-    /* Permite quebra de linha */
-    max-width: 230px;
-    /* Define uma largura para forçar a quebra */
-    word-wrap: break-word;
-    /* Quebra palavras longas se necessário */
-}
-
-.notification {
-    position: fixed;
-    bottom: 20px;
-    /* Distância do fundo */
-    left: 50%;
-    /* Centraliza horizontalmente */
-    transform: translateX(-50%);
-    /* Ajusta para o centro */
-    background-color: #303030;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    opacity: 0;
-    /* Inicia invisível */
-    transition: opacity 0.5s ease;
-    /* Animação de fade */
-    z-index: 1000;
-    /* Garante que fique acima de outros elementos */
-}
-
-.notification.show {
-    opacity: 1;
-    /* Torna visível */
-}
-
-/* end footer */
-
-/* Media Queries (Mantidas como Estão, com Ajustes para o nav fixo) */
+/* Responsivo */
 
 @media (max-width: 960px) {
-    .sub-header {
-        height: 40vh;
-        background-size: cover;
-    }
-
-    .sub-header h1 {
-        margin-top: 30px;
-        font-size: 25px;
-        padding: 20px;
-    }
-
-    nav {
-        padding: 2% 4%;
-    }
-
-    nav.fixed {
-        padding: 1% 4%;
-    }
-
-
-
-    nav img {
-        width: 150px;
-    }
-
-    .nav-links {
-        position: absolute;
-        background-color: #004daf;
-        height: 100vh;
-        width: 200px;
-        top: 0;
-        right: -200px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
-    }
-
-    nav.fixed .nav-links {
-        background-color: #004daf;
-    }
-
-    /* Remove o hover no mobile e usa display: none por padrão */
-    .nav-links ul li:hover>ul.dropdown {
-        display: none;
-        /* Desativa o hover no mobile */
-    }
-
-    /* Estiliza o dropdown no mobile */
-    .nav-links ul .has-dropdown ul.dropdown {
-        position: static;
-        /* Remove a posição absoluta para mobile */
-        background-color: #1b99ca;
-        /* Fundo azul escuro no mobile */
-        box-shadow: none;
-        /* Remove sombra no mobile, se necessário */
-        margin-left: 10px;
-        /* Indentação no mobile */
-        border-radius: 0;
-        /* Remove bordas arredondadas no mobile */
-        padding-top: 0;
-    }
-
-    /* Mostra o dropdown ao clicar (será controlado pelo JavaScript) */
-    .nav-links ul .has-dropdown.active ul.dropdown {
-        display: block;
-    }
-
-    nav.fixed .nav-links ul li a {
-        color: white;
-    }
-
-    .nav-links ul li {
-        padding: 8px 10px;
-    }
-
-    .nav-links ul li a {
-        font-size: 12px;
-    }
-
-    nav .fa {
-        display: block;
-        color: #fff;
-        margin: 10px;
-        cursor: pointer;
-    }
-
-    nav.fixed .fa {
-        color: white;
-    }
-
+   
     .about-us .container {
         flex-direction: column;
         text-align: center;
         gap: 20px;
+    }
+
+    .about-us {
+        padding: 0;
     }
 
     .about-us .about-text,
@@ -514,82 +135,10 @@ footer {
         width: 100%;
     }
 
-    #footer_content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    #footer_content,
-    #footer_subscribe,
-    #footer_contacts,
-    .footer-list {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    #input-group {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links ul {
-        padding-top: 50px;
-    }
-
-    .nav-links ul li {
-        display: block;
-        margin: 20px 0;
-        text-align: left;
-    }
-
-    .nav-links ul li a {
-        font-size: 18px;
-    }
-
-    nav .fa {
-        font-size: 25px;
-    }
-
-    .about-us .about-text {
-        padding: 20px;
-        text-align: left;
-    }
-
-    .about-empresa .container {
-        gap: 20px;
-    }
-
-    #footer_content {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (max-width: 430px) {
-    .sub-header {
-        height: 30vh;
-    }
-
-    .sub-header h1 {
-        margin-top: 20px;
-        font-size: 20px;
-        padding: 15px;
-    }
-
-    nav {
-        padding: 2% 3%;
-    }
-
-    nav.fixed {
-        padding: 1% 3%;
-    }
-
-    nav img {
-        width: 120px;
-    }
-
+    
     .about-us .about-text {
         font-size: 1rem;
         padding: 15px;
@@ -597,17 +146,5 @@ footer {
 
     .about-us .about-img img {
         max-width: 300px;
-    }
-
-    #footer_content {
-        grid-template-columns: repeat(1, 1fr);
-        padding: 3rem 2rem;
-    }
-
-    #input-group {
-        margin: 0;
-        padding: 0;
-        border: none;
-        box-shadow: none;
     }
 }
