@@ -1,6 +1,11 @@
 "use strict"
 
-// ✅ Funções do menu mobile
+// botões index
+function redirectTo(page) {
+  window.location.href = page;
+}
+
+// Funções do menu mobile
 function showMenu() {
 document.getElementById("navLinks").style.right = "0";
 document.querySelector(".fa-times").style.display = "block";
@@ -16,7 +21,7 @@ document.querySelector(".fa-bars").style.display = "block";
 document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('active'));
 }
 
-// ✅ Fixar Header e controlar botão "Voltar ao Topo" (sub.header)
+// Fixar Header e controlar botão "Voltar ao Topo" (sub.header)
 window.addEventListener('scroll', function () {
 const nav = document.getElementById('mainNav');
 const subHeader = document.querySelector('.sub-header');
@@ -54,7 +59,7 @@ if (subHeader) {
 }
 });
 
-// ✅ Aguarda o carregamento do DOM
+// Aguarda o carregamento do DOM
 document.addEventListener("DOMContentLoaded", function () {
 const faTimes = document.querySelector(".fa-times");
 const faBars = document.querySelector(".fa-bars");
@@ -67,7 +72,7 @@ if (faTimes) faTimes.style.display = "none"; // Esconder botão de fechar por pa
 if (faBars) faBars.addEventListener("click", showMenu);
 if (faTimes) faTimes.addEventListener("click", hideMenu);
 
-// ✅ Gerencia o dropdown no mobile
+// Gerencia o dropdown no mobile
 dropdownItems.forEach(item => {
   const dropdownLink = item.querySelector("a");
 
@@ -81,14 +86,14 @@ dropdownItems.forEach(item => {
   }
 });
 
-// ✅ Fecha o dropdown se clicar fora
+// Fecha o dropdown se clicar fora
 document.addEventListener('click', function (event) {
   if (navLinks && !navLinks.contains(event.target)) {
       dropdownItems.forEach(item => item.classList.remove('active'));
   }
 });
 
-// ✅ Botão "Voltar ao Topo"
+// Botão "Voltar ao Topo"
 const backToTop = document.getElementById("backToTop");
 if (backToTop) {
   backToTop.addEventListener("click", function () {
@@ -99,7 +104,7 @@ if (backToTop) {
   });
 }
 
-// ✅ Botão copiar telefone
+// Botão copiar telefone
 window.copyAndNotify = function (phoneNumber) {
   navigator.clipboard.writeText(phoneNumber)
       .then(() => {
@@ -113,7 +118,7 @@ window.copyAndNotify = function (phoneNumber) {
       .catch(err => console.error('Erro ao copiar: ', err));
 };
 
-// ✅ Captura de e-mail com EmailJS
+// Captura de e-mail com EmailJS
 window.emailCatch = function () {
   let emailValue = document.getElementById("emailFooter")?.value;
   if (!emailValue) {
@@ -130,7 +135,7 @@ window.emailCatch = function () {
       .catch(error => alert("Falha ao enviar o e-mail: " + error));
 };
 
-// ✅ Botão "Orçamento"
+// Botão "Orçamento"
 const btnOrcamento = document.getElementById("btn-orcamento");
 if (btnOrcamento) {
   btnOrcamento.addEventListener("click", function () {
