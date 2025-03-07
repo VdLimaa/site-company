@@ -82,34 +82,32 @@
                         <i class="fa-solid fa-boxes-stacked" style="font-size: 2.2rem; color: #004daf;"></i>
                     </div>
                     <h1>Logística Porta a Porta</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ratione, fugiat ad quidem,
-                        voluptatem repellat perspiciatis possimus eaque velit exercitationem sed ab in porro corrupti.
-                        Eaque debitis dolore nobis impedit?</p>
+                    <p>A Logística Porta a Porta é um serviço integrado que gerencia o transporte de mercadorias desde o
+                        ponto de origem até o destino final, oferecendo uma solução completa e sem complicações. A JL
+                        Marine combina expertise em transporte marítimo, aéreo e terrestre, assegurando entregas
+                        pontuais, segurança e rastreamento em tempo real para atender às necessidades de empresas em
+                        escala global.</p>
                     <h3>Benefícios e Características:</h3>
                     <ul class="servico-list">
-                        <li><b>Padronização de informações:</b> Facilita o registro de dados como descrição, código NCM,
-                            atributos técnicos e especificações, evitando inconsistências nas declarações.</li>
-                        <li><b>Agilidade no despacho:</b> Com o catálogo preenchido, o processo de importação ganha
-                            rapidez, pois os dados já estão validados e prontos para uso na DUIMP.</li>
-                        <li><b>Conformidade aduaneira:</b> Ajuda a atender às exigências da Receita Federal, reduzindo
-                            riscos de autuações ou atrasos por informações incorretas ou incompletas.</li>
-                        <li><b>Gestão centralizada:</b> Permite que empresas organizem seu portfólio de produtos
-                            importados em um único sistema, otimizando o controle e a rastreabilidade.</li>
+                        <li><b>Solução Integrada:</b> Cobertura total do processo, desde a coleta até a entrega, sem
+                            necessidade de múltiplos fornecedores.</li>
+                        <li><b>Rastreamento em Tempo Real:</b> Visibilidade constante do status da carga via plataformas
+                            digitais.</li>
+                        <li><b>Pontualidade Garantida:</b> Planejamento otimizado para cumprir prazos críticos de
+                            entrega.</li>
+                        <li><b>Redução de Custos:</b> Otimização de rotas e consolidação de cargas para minimizar
+                            despesas.</li>
                     </ul>
                     <h3>Aplicações Práticas:</h3>
                     <ul class="servico-list">
-                        <li>Cadastramento de mercadorias recorrentes, como matérias-primas ou componentes industriais,
-                            para uso em múltiplas importações.</li>
-                        <li>Registro de produtos com especificações técnicas complexas, como máquinas ou eletrônicos,
-                            garantindo precisão na classificação fiscal.</li>
-                        <li>Facilitação de operações de grande volume, como em indústrias ou distribuidores que importam
-                            regularmente diversos itens.</li>
+                        <li>Transporte de produtos industriais de fábricas para clientes internacionais.</li>
+                        <li>Entrega de mercadorias perecíveis com controle de temperatura ao redor do mundo.</li>
+                        <li>Suporte logístico para e-commerce com envios diretos ao consumidor final.</li>
                     </ul>
-                    <p>No contexto do comércio exterior, o Catálogo de Produtos para DUIMP exige um cadastro inicial bem
-                        estruturado, conhecimento das normas aduaneiras e integração com sistemas de gestão logística.
-                        Ele é uma ferramenta estratégica para empresas que operam no mercado global, proporcionando
-                        maior controle, redução de custos operacionais e alinhamento com as modernizações do sistema
-                        aduaneiro brasileiro.</p>
+                    <p>No contexto do comércio exterior, a Logística Porta a Porta exige coordenação eficiente entre
+                        modais de transporte e documentação aduaneira. A JL Marine atua como parceira estratégica,
+                        proporcionando soluções personalizadas que simplificam a cadeia de suprimentos e elevam a
+                        eficiência das operações globais.</p>
                 </div>
             </div>
             <a target="_blank" class="whatsapp-icon" href="#">
@@ -218,139 +216,16 @@
     </footer>
     <!-- end footer -->
 
+     <!-- Botão Voltar ao Topo -->
+     <button id="backToTop" class="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <!-- End Botão Voltar ao Topo -->
+
     <!-- Javascript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Pega o título da página uma vez ao carregar
-            const pageTitle = document.title; // Título da página sem encoding
 
-            // Configuração do WhatsApp
-            const phoneNumber = "+5513981127677";
-            const whatsappMessage = "Olá! Gostaria de mais informações sobre " + pageTitle + ".";
-            const whatsappButton = document.querySelector(".whatsapp-icon");
-
-            if (whatsappButton) {
-                whatsappButton.setAttribute("href", "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(whatsappMessage));
-            }
-
-            // Inicializa EmailJS
-            emailjs.init("c428_m0OO36S2ukqb");
-
-            // Configuração do formulário
-            document.querySelector(".contato-form").addEventListener("submit", function (event) {
-                event.preventDefault(); // Previne envio padrão do formulário
-                sendMail(pageTitle); // Passa o título da página para a função sendMail
-            });
-        });
-
-        function sendMail(pageTitle) {
-            let params = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                subject: pageTitle, // Usa o título da página como subject
-                message: document.getElementById("message").value
-            };
-
-            emailjs.send("service_myyu0e7", "template_3btred7", params)
-                .then(function (response) {
-                    alert("E-mail enviado com sucesso!");
-                    console.log("SUCCESS!", response);
-
-                    // Limpar os campos após o envio
-                    document.querySelector(".contato-form").reset();
-                })
-                .catch(function (error) {
-                    alert("Erro ao enviar o e-mail. Verifique o console para mais detalhes.");
-                    console.error("EmailJS Error:", error);
-                });
-        }
-
-
-        function emailCatch() {
-            let emailValue = document.getElementById("emailFooter").value;
-
-            // Validação básica
-            if (!emailValue) {
-                alert("Por favor, insira um e-mail!");
-                return;
-            }
-
-            let parms = {
-                email: emailValue,
-            };
-
-            emailjs.send("service_myyu0e7", "template_09oxatb", parms)
-                .then(function (response) {
-                    alert("E-mail enviado com sucesso!");
-                    // Limpar o campo correto após o envio
-                    document.getElementById("emailFooter").value = "";
-                })
-                .catch(function (error) {
-                    alert("Falha ao enviar o e-mail: " + error);
-                });
-        }
-
-        var navLinks = document.getElementById("navLinks");
-        var menuIcon = document.querySelector(".fa-bars");
-        var closeIcon = document.querySelector(".fa-times");
-
-        function showMenu() {
-            navLinks.style.right = "0";
-            closeIcon.style.display = "block";  // Mostra o botão de fechar
-            menuIcon.style.display = "none";    // Esconde o botão de abrir
-        }
-
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-            closeIcon.style.display = "none";   // Esconde o botão de fechar
-            menuIcon.style.display = "block";   // Mostra o botão de abrir
-        }
-
-        // Esconder o botão de fechar por padrão quando a página carregar
-        document.addEventListener("DOMContentLoaded", function () {
-            closeIcon.style.display = "none";
-        });
-
-
-
-        function copyAndNotify(phoneNumber) {
-            // Copia o número para a área de transferência
-            navigator.clipboard.writeText(phoneNumber)
-                .then(() => {
-                    // Mostra a notificação
-                    const notification = document.getElementById('notification');
-                    notification.textContent = 'Número copiado!';
-                    notification.classList.add('show');
-
-                    // Esconde após 2 segundos
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 1000);
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                });
-        }
-
-        // Mensagem personalizada wpp
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var pageTitle = document.title; // Pega o título sem encoding
-            var phoneNumber = "+5513981127677";
-            var message = "Olá! Gostaria de mais informações sobre " + pageTitle + ".";
-
-            var whatsappButton = document.querySelector(".whatsapp-icon");
-
-            if (whatsappButton) {
-                whatsappButton.setAttribute("href", "https://wa.me/" + phoneNumber + "?text=" + message);
-            }
-        });
-
-
-
-    </script>
-
-
+    <script src="../js/form-solutions.js"></script>
+    <script src="../js/main.js"></script>
 
     <!-- End Javascript -->
 

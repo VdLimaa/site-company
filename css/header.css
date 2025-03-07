@@ -134,8 +134,8 @@ nav.fixed .nav-links ul li a {
 
 .back-to-top {
     position: fixed;
-    bottom: 90px;
-    right: 24px;
+    bottom: 20px;
+    right: 15px;
     background-color: rgba(0, 0, 0, 0.733);
     color: white;
     border: none;
@@ -429,7 +429,6 @@ nav.fixed .fa-times {
     html,
     body {
         width: 100%;
-        overflow-x: hidden;
     }
 
 

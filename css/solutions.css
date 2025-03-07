@@ -25,6 +25,12 @@
     position: relative;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+}
+
 .hero-btn {
     display: inline-block;
     text-decoration: none;
@@ -269,6 +275,12 @@ main .container {
     .contato-especialistas .form-group textarea {
         padding: 8px;
         font-size: 0.9rem;
+    }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 85px;
+        right: 15px;
     }
 
 }
