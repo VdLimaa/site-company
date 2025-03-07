@@ -218,7 +218,7 @@
 /* Responsivo */
 
 @media (max-width: 960px) {
-    
+
 
     main .container {
         flex-direction: column;
@@ -303,7 +303,7 @@
         text-align: center;
     }
 
- 
+
 }
 
 @media (max-width: 768px) {
@@ -332,12 +332,12 @@
         font-size: 25px;
         cursor: pointer;
     }
-    
+
     nav.fixed .nav-links ul li a {
         color: white;
     }
 
-    
+
 }
 
 @media (max-width: 430px) {
