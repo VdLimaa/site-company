@@ -254,15 +254,16 @@ nav.fixed .fa-times {
         font-size: 18px;
     }
 
+    /* Ajuste para o nav-links ser fixo o tempo todo no mobile */
     .nav-links {
-        position: fixed; /* Alterado para fixed para evitar deslize */
+        position: fixed; /* Sempre fixo no mobile */
         background-color: #004daf;
         height: 100vh;
         width: 200px;
         top: 0;
         right: -200px; /* Escondido por padrão */
         text-align: left;
-        z-index: 2;
+        z-index: 2000; /* Aumentado para ficar acima de outros elementos */
         transition: right 0.5s ease; /* Transição apenas no right */
     }
 
@@ -291,7 +292,7 @@ nav.fixed .fa-times {
     }
 
     nav.fixed .nav-links {
-        background-color: #004daf;
+        background-color: #004daf; /* Mantém a cor mesmo quando fixo */
     }
 
     .nav-links ul li:hover>ul.dropdown {
@@ -392,5 +393,9 @@ nav.fixed .fa-times {
     html,
     body {
         width: 100%;
+        
     }
+
+
+    
 }

@@ -1,4 +1,8 @@
-"use strict"
+"use strict";
+
+// Variáveis globais para rastrear o toque
+let touchStartX = 0;
+let touchMoveX = 0;
 
 // Funções do menu mobile
 function showMenu() {
@@ -22,15 +26,25 @@ window.addEventListener('scroll', function () {
   const subHeader = document.querySelector('.sub-header');
   const backToTop = document.getElementById('backToTop');
 
-  if (subHeader) {
-    const subHeaderHeight = subHeader.offsetHeight;
+  // Se não for mobile, aplica a lógica de fixação baseada no scroll
+  if (window.innerWidth > 960) {
+    if (subHeader) {
+      const subHeaderHeight = subHeader.offsetHeight;
 
-    if (window.scrollY >= subHeaderHeight - 1) {
-      nav.classList.add('fixed');
-      if (backToTop) backToTop.classList.add('show');
-    } else {
-      nav.classList.remove('fixed');
-      if (backToTop) backToTop.classList.remove('show');
+      if (window.scrollY >= subHeaderHeight - 1) {
+        nav.classList.add('fixed');
+        if (backToTop) backToTop.classList.add('show');
+      } else {
+        nav.classList.remove('fixed');
+        if (backToTop) backToTop.classList.remove('show');
+      }
+    }
+  } else {
+    // No mobile, mostra o botão "Voltar ao Topo" se o scroll for maior que 100px (ajustável)
+    if (backToTop && window.scrollY > 100) {
+      backToTop.classList.add('show');
+    } else if (backToTop) {
+      backToTop.classList.remove('show');
     }
   }
 });
@@ -38,18 +52,28 @@ window.addEventListener('scroll', function () {
 // Fixar Header e controlar botão "Voltar ao Topo" (header)
 window.addEventListener('scroll', function () {
   const nav = document.getElementById('mainNav');
-  const subHeader = document.querySelector('.header');
+  const header = document.querySelector('.header');
   const backToTop = document.getElementById('backToTop');
 
-  if (subHeader) {
-    const subHeaderHeight = subHeader.offsetHeight;
+  // Se não for mobile, aplica a lógica de fixação baseada no scroll
+  if (window.innerWidth > 960) {
+    if (header) {
+      const headerHeight = header.offsetHeight;
 
-    if (window.scrollY >= subHeaderHeight - 1) {
-      nav.classList.add('fixed');
-      if (backToTop) backToTop.classList.add('show');
-    } else {
-      nav.classList.remove('fixed');
-      if (backToTop) backToTop.classList.remove('show');
+      if (window.scrollY >= headerHeight - 1) {
+        nav.classList.add('fixed');
+        if (backToTop) backToTop.classList.add('show');
+      } else {
+        nav.classList.remove('fixed');
+        if (backToTop) backToTop.classList.remove('show');
+      }
+    }
+  } else {
+    // No mobile, mostra o botão "Voltar ao Topo" se o scroll for maior que 100px (ajustável)
+    if (backToTop && window.scrollY > 100) {
+      backToTop.classList.add('show');
+    } else if (backToTop) {
+      backToTop.classList.remove('show');
     }
   }
 });
@@ -60,6 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const faBars = document.querySelector(".fa-bars");
   const navLinks = document.getElementById('navLinks');
   const dropdownItems = document.querySelectorAll('.has-dropdown');
+  const nav = document.getElementById('mainNav');
+
+  // Forçar nav.fixed no mobile desde o início
+  if (window.innerWidth <= 960) {
+    nav.classList.add('fixed');
+  }
 
   if (faTimes) faTimes.style.display = "none"; // Esconder botão de fechar por padrão
 
@@ -137,7 +167,30 @@ document.addEventListener("DOMContentLoaded", function () {
       window.open("https://www.redestina.com.br/#pricing", "_blank");
     });
   }
+
+  // Bloquear deslize horizontal no mobile
+  if (window.innerWidth <= 960) {
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX; // Captura a posição inicial do toque
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+      touchMoveX = e.touches[0].clientX; // Captura a posição durante o movimento
+      const deltaX = touchMoveX - touchStartX; // Calcula a diferença horizontal
+
+      // Se o menu está fechado (right: -200px), bloqueia o deslize
+      if (navLinks && navLinks.style.right === '-200px') {
+        e.preventDefault(); // Impede qualquer movimento horizontal
+      } else if (navLinks && navLinks.style.right === '0px' && deltaX < -50) {
+        // Se o menu está aberto, permite fechá-lo deslizando para a esquerda (opcional)
+        hideMenu();
+      }
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+      // Reseta as variáveis ao finalizar o toque
+      touchStartX = 0;
+      touchMoveX = 0;
+    });
+  }
 });
-
-
-
