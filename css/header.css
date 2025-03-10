@@ -43,9 +43,14 @@ body {
 }
 
 .sub-header h1 {
-    margin-top: 30px;
-    font-size: 25px;
+    margin-top: 100px;
+    font-size: 27px;
+    display: inline-block;
     padding: 20px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 20%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .header {
@@ -199,7 +204,8 @@ nav .fa-bars {
 }
 
 nav .fa-times {
-    display: none; /* Inicialmente escondido */
+    display: none;
+    /* Inicialmente escondido */
 }
 
 nav.fixed .fa-bars,
@@ -256,19 +262,24 @@ nav.fixed .fa-times {
 
     /* Ajuste para o nav-links ser fixo o tempo todo no mobile */
     .nav-links {
-        position: fixed; /* Sempre fixo no mobile */
+        position: fixed;
+        /* Sempre fixo no mobile */
         background-color: #004daf;
         height: 100vh;
         width: 200px;
         top: 0;
-        right: -200px; /* Escondido por padrão */
+        right: -200px;
+        /* Escondido por padrão */
         text-align: left;
-        z-index: 2000; /* Aumentado para ficar acima de outros elementos */
-        transition: right 0.5s ease; /* Transição apenas no right */
+        z-index: 2000;
+        /* Aumentado para ficar acima de outros elementos */
+        transition: right 0.5s ease;
+        /* Transição apenas no right */
     }
 
     .nav-links.active {
-        right: 0; /* Aparece apenas com a classe active */
+        right: 0;
+        /* Aparece apenas com a classe active */
     }
 
     ul li>a {
@@ -292,7 +303,8 @@ nav.fixed .fa-times {
     }
 
     nav.fixed .nav-links {
-        background-color: #004daf; /* Mantém a cor mesmo quando fixo */
+        background-color: #004daf;
+        /* Mantém a cor mesmo quando fixo */
     }
 
     .nav-links ul li:hover>ul.dropdown {
@@ -351,16 +363,6 @@ nav.fixed .fa-times {
         position: relative;
     }
 
-    .sub-header h1 {
-        margin-top: 30px;
-        font-size: 25px;
-        display: inline-block;
-        padding: 20px;
-        border: 3px solid rgb(255, 255, 255);
-        border-radius: 20%;
-        text-align: center;
-        font-weight: bold;
-    }
 }
 
 @media (max-width: 768px) {
@@ -393,9 +395,9 @@ nav.fixed .fa-times {
     html,
     body {
         width: 100%;
-        
+
     }
 
 
-    
+
 }

@@ -69,7 +69,6 @@ window.addEventListener('scroll', function () {
       }
     }
   } else {
-    // No mobile, mostra o botão "Voltar ao Topo" se o scroll for maior que 100px (ajustável)
     if (backToTop && window.scrollY > 100) {
       backToTop.classList.add('show');
     } else if (backToTop) {
@@ -86,14 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownItems = document.querySelectorAll('.has-dropdown');
   const nav = document.getElementById('mainNav');
 
-  // Forçar nav.fixed no mobile desde o início
   if (window.innerWidth <= 960) {
     nav.classList.add('fixed');
   }
 
-  if (faTimes) faTimes.style.display = "none"; // Esconder botão de fechar por padrão
+  if (faTimes) faTimes.style.display = "none";
 
-  // Adicionar eventos de clique no menu mobile
   if (faBars) faBars.addEventListener("click", showMenu);
   if (faTimes) faTimes.addEventListener("click", hideMenu);
 
@@ -171,24 +168,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // Bloquear deslize horizontal no mobile
   if (window.innerWidth <= 960) {
     document.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX; // Captura a posição inicial do toque
+      touchStartX = e.touches[0].clientX;
     }, { passive: false });
 
     document.addEventListener('touchmove', (e) => {
-      touchMoveX = e.touches[0].clientX; // Captura a posição durante o movimento
-      const deltaX = touchMoveX - touchStartX; // Calcula a diferença horizontal
+      touchMoveX = e.touches[0].clientX;
+      const deltaX = touchMoveX - touchStartX;
 
-      // Se o menu está fechado (right: -200px), bloqueia o deslize
       if (navLinks && navLinks.style.right === '-200px') {
         e.preventDefault(); // Impede qualquer movimento horizontal
       } else if (navLinks && navLinks.style.right === '0px' && deltaX < -50) {
-        // Se o menu está aberto, permite fechá-lo deslizando para a esquerda (opcional)
         hideMenu();
       }
     }, { passive: false });
 
     document.addEventListener('touchend', () => {
-      // Reseta as variáveis ao finalizar o toque
       touchStartX = 0;
       touchMoveX = 0;
     });
